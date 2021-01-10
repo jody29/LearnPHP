@@ -5,6 +5,7 @@
 html, body {
     overflow-y: hidden;
     overflow-x: hidden;
+    color: #000;
 }
 
 
@@ -37,11 +38,12 @@ form {
 form input {
     margin-bottom: 1em;
     padding: 1.5em;
-    background-color: rgba(250,250,250,.2);
+/*    background-color: rgba(250,250,250,.2);*/
     border: 0;
-    color: white;
+    color: #000;
 }
 
+/*
 form input:focus {
     outline: none;
 }
@@ -53,10 +55,9 @@ form input::placeholder {
 
 
 form input:last-of-type {
-    background-color: transparent;
-    border: 2px solid rgba(250,250,250,.2);
-    color: white;
+    
 }
+*/
 
 /*Registratie knop*/
 

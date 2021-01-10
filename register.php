@@ -83,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_SESSION["username"] = $username;
                 
                 
-                header("location: login.php");
+                header("location: index.php");
             } else{
                 echo "Er is iets mis gegaan. Probeer het later nog eens.";
             }
