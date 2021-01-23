@@ -1,10 +1,7 @@
 <?php
-
 //session_start();
 include 'upload.php';
-
 $username = $_SESSION["username"];
-
 ?>
 
 
@@ -14,20 +11,18 @@ $username = $_SESSION["username"];
     <meta charset="UTF-8">
     <title>Landing Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../CodeGram-main/styles/style.css">
     
 </head>
 <body id="landingPage">
-    <h1>Welkom <a href="#"><?= $_SESSION["username"]; ?></a> </h1>
-   
-   <a href="logout.php">Uitloggen</a>
-   
-   <form action="upload.php" method="post" enctype="multipart/form-data">
-    Select Image File to Upload:
-    <input type="file" name="file">
-    <input type="submit" name="submit" value="Upload">
-</form>
+ <?php
+include 'header.php';
+?>
 
+<main>
+<!--<h1>Welkom <?= $_SESSION["username"]; ?> </h1>-->
+<h1>CodeGram</h1>
+ <div class="Uploads">
 <?php
 // Include the database configuration file
 include 'PHP/config.php';
@@ -39,19 +34,29 @@ if($query->num_rows > 0){
     while($row = $query->fetch_assoc()){
         $imageURL = 'uploads/'.$row["file_name"];
         $user = $row["user"];
+        $votes = $row["vote_count"];
 ?>
+ 
    <figure>
     <img src="<?php echo $imageURL; ?>" alt="" />
-    <figcaption>Geupload door: <?= " ".$user ?></figcaption>
+       <figcaption><a href="otherAccount.php"><span><?= " ".$user ?></span></a></figcaption>
     </figure>
+  
     
 <?php }
 }else{ ?>
-    <p>No image(s) found...</p>
-<?php } ?>
+   <div id="empty_state"></div>
+    <img src="../CodeGram-main/Icons/no_image_found_1.png" alt="">
+    <h2>No image(s) found...</h2>
+    <p>Upload your first image at +</p>
+<?php } 
+      
+
+     ?>
 
 
-
-    
+  </div>
+    </main>
+    <script src="script/script.js"></script>
 </body>
 </html>
